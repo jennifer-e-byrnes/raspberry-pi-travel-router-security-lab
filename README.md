@@ -7,6 +7,23 @@
 
 A portable network security lab implementing **VPN-first routing, DNS enforcement, and firewall segmentation** using **OpenWrt on a Raspberry Pi**.
 
+---
+
+## Security Concepts Demonstrated
+
+This project demonstrates several practical network security architecture concepts:
+
+| Concept | Implementation |
+|-------|----------------|
+| VPN-first routing | Firewall forwarding restricts LAN traffic to the WireGuard interface |
+| DNS enforcement | Firewall redirects force all DNS queries to the router resolver |
+| DNSSEC validation | DNSMasq configured to validate DNS responses |
+| IPv6 leak prevention | IPv6 DHCP, RA, and SLAAC disabled |
+| Firewall segmentation | Separate LAN, WAN, and VPN zones |
+| Secure management surface | SSH and LuCI restricted to LAN |
+| Rogue DHCP protection | Firewall rules block unauthorized DHCP responses |
+| Network trust boundary | Router enforces centralized security controls for all clients |
+
 📄 **Full Project Documentation**  
 [Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
 
