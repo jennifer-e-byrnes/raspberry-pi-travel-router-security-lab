@@ -10,6 +10,22 @@ A portable network security lab implementing **VPN-first routing, DNS enforcemen
 📄 **Full Project Documentation**  
 [Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
 
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Security Controls Implemented](#security-controls-implemented)
+- [System Architecture](#system-architecture)
+- [Core Components](#core-components)
+- [Testing Methodology](#testing-methodology)
+- [Limitations](#limitations)
+- [Future Improvements](#future-improvements)
+- [Skills Demonstrated](#skills-demonstrated)
+- [Author](#author)
+
+---
+
 ## Project Overview
 
 Public networks (hotels, airports, cafés, and temporary housing) are environments where users have little control over the underlying infrastructure.
@@ -35,7 +51,9 @@ By centralizing routing and DNS policies at the gateway, all connected devices a
 
 This architecture mirrors how many organizations implement **network security controls at trusted boundaries**, where routing policy, DNS enforcement, and segmentation are centralized within network infrastructure.
 
-# Security Controls Implemented
+---
+
+## Security Controls Implemented
 
 | Security Control | Implementation |
 |---|---|
@@ -47,28 +65,35 @@ This architecture mirrors how many organizations implement **network security co
 
 Together these controls ensure that **all client traffic follows the intended encrypted routing path**.
 
-# System Architecture
+---
+
+## System Architecture
 
 The router acts as an intermediary gateway between client devices and upstream networks.
 
 **Client traffic flow:**
 
 Client Device
-↓
+│
+▼
 Travel Router (OpenWrt)
-↓
+│
+▼
 WireGuard VPN Tunnel
-↓
+│
+▼
 Internet
 
-**The architecture enforces centralized control over:**
+The architecture enforces centralized control over:
 
 - routing behavior
 - DNS resolution
 - firewall policy
 - administrative access
 
-# Core Components
+---
+
+## Core Components
 
 | Component | Purpose |
 |---|---|
@@ -81,7 +106,9 @@ Internet
 | **Dropbear** | SSH management access |
 | **LuCI** | Web configuration interface |
 
-# Testing Methodology
+---
+
+## Testing Methodology
 
 After configuration, several tests validated that routing and DNS controls behaved as expected.
 
@@ -101,7 +128,9 @@ Results confirmed that:
 - LAN → WAN bypass is blocked
 - administrative access is LAN-only
 
-# Limitations
+---
+
+## Limitations
 
 This implementation focuses primarily on **routing and DNS control**, not full network monitoring.
 
@@ -113,7 +142,9 @@ Known limitations include:
 - no deep packet inspection or IDS
 - hardware performance limits of Raspberry Pi
 
-# Future Improvements
+---
+
+## Future Improvements
 
 Planned future enhancements include:
 
@@ -125,7 +156,9 @@ Planned future enhancements include:
 
 These additions would further expand the system into a **portable network security experimentation platform**.
 
-# Skills Demonstrated
+---
+
+## Skills Demonstrated
 
 This project demonstrates practical experience in:
 
@@ -137,11 +170,12 @@ This project demonstrates practical experience in:
 - troubleshooting complex routing behavior
 - translating security goals into infrastructure controls
 
-# Author
+---
+
+## Author
 
 Jennifer Byrnes  
 Cybersecurity Portfolio Project  
 March 2026
-
 
 
