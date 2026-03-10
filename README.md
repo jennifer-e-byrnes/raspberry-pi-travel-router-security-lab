@@ -1,17 +1,18 @@
 # 📄 Raspberry Pi Travel Router Security Lab
 
-## Full Project Documentation
-[Open the full write-up](docs/travel-router-security-architecture-lab.pdf)
-
-## Overview
+![OpenWrt](https://img.shields.io/badge/OpenWrt-router--os-blue)
+![WireGuard](https://img.shields.io/badge/WireGuard-VPN-orange)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-hardware-red)
+![Network Security](https://img.shields.io/badge/Security-Network%20Architecture-green)
 
 A portable network security lab implementing **VPN-first routing, DNS enforcement, and firewall segmentation** using **OpenWrt on a Raspberry Pi**.
 
-This project explores how core cybersecurity architecture concepts — such as **network trust boundaries, centralized DNS control, and encrypted traffic routing** — can be implemented in a real network environment using inexpensive hardware and open-source networking tools.
+📄 **Full Project Documentation**  
+[Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
 
-# Project Overview
+## Project Overview
 
-Public networks (hotels, airports, cafés, short-term housing) are environments where users have little control over the underlying infrastructure.  
+Public networks (hotels, airports, cafés, and temporary housing) are environments where users have little control over the underlying infrastructure.
 
 Even when a device-level VPN is enabled, traffic can still behave unpredictably due to:
 
@@ -20,7 +21,7 @@ Even when a device-level VPN is enabled, traffic can still behave unpredictably 
 - fallback routes when a VPN disconnects
 - exposure to upstream network scanning
 
-Instead of relying on each individual device to configure its own security settings, this project enforces those controls **at the network gateway itself**.
+Instead of relying on each individual device to configure its own security settings, this project enforces security controls **at the network gateway itself**.
 
 A **Raspberry Pi running OpenWrt** acts as a travel router that:
 
@@ -30,7 +31,9 @@ A **Raspberry Pi running OpenWrt** acts as a travel router that:
 - restricts **administrative access**
 - reduces **IPv6 routing leakage**
 
-This approach mirrors how many organizations implement **centralized network security controls at trusted boundaries**.
+By centralizing routing and DNS policies at the gateway, all connected devices automatically follow the same security controls without requiring configuration changes on each endpoint.
+
+This architecture mirrors how many organizations implement **network security controls at trusted boundaries**, where routing policy, DNS enforcement, and segmentation are centralized within network infrastructure.
 
 # Security Controls Implemented
 
