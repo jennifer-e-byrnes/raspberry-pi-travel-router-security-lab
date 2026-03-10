@@ -18,7 +18,7 @@ Sensitive values such as private keys, Wi-Fi credentials, and endpoint identifie
 | Script | Purpose |
 |------|------|
 | vpn_monitor.sh | Monitors WireGuard handshake age and connectivity and attempts automated recovery |
-| wifi_recover_at_boot.sh | Performs delayed Wi-Fi restart during boot to recover wireless services |
+| wifi_recovery_at_boot.sh | Performs delayed Wi-Fi restart during boot to recover wireless services |
 | hotplug_wg_after_ntp.sh | Ensures the VPN interface starts only after upstream connectivity and time synchronization |
 | hotplug_time_fix.sh | Restarts time-dependent services after interface state changes |
 
