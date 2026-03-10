@@ -1,2 +1,5 @@
-# raspberry-pi-travel-router-security-lab
-Portable network security lab implementing VPN-first routing, DNS enforcement, and firewall segmentation using OpenWrt on a Raspberry Pi travel router.
+## Full Project Documentation
+
+📄 Travel Router Security Architecture Lab
+
+[Open the full write-up](docs/travel-router-security-architecture-lab.pdf)
