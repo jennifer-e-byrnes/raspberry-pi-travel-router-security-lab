@@ -24,6 +24,22 @@ A portable network security lab implementing **VPN-first routing, DNS enforcemen
 - [Skills Demonstrated](#skills-demonstrated)
 - [Author](#author)
 
+## Repository Structure
+
+raspberry-pi-travel-router-security-lab
+│
+├── README.md
+├── LICENSE
+│
+├── docs/
+│   └── travel-router-security-architecture-lab.pdf
+│
+├── diagrams/
+│   └── (architecture diagrams)
+│
+└── configs/
+    └── (router configuration snapshots)
+    
 ---
 
 ## Project Overview
