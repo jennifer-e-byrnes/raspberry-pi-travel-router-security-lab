@@ -7,6 +7,9 @@
 
 A portable network security lab implementing **VPN-first routing, DNS enforcement, and firewall segmentation** using **OpenWrt on a Raspberry Pi**.
 
+📄 **Full Project Documentation**  
+[Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
+
 ---
 
 ## Security Concepts Demonstrated
@@ -23,9 +26,6 @@ This project demonstrates several practical network security architecture concep
 | Secure management surface | SSH and LuCI restricted to LAN |
 | Rogue DHCP protection | Firewall rules block unauthorized DHCP responses |
 | Network trust boundary | Router enforces centralized security controls for all clients |
-
-📄 **Full Project Documentation**  
-[Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
 
 ---
 
