@@ -36,19 +36,22 @@ LAN clients are allowed to forward traffic only to the VPN zone.
 
 LAN → VPN → Internet
 
-Direct forwarding from LAN to WAN is explicitly blocked. :contentReference[oaicite:0]{index=0}
+Direct forwarding from LAN to WAN is explicitly blocked in the firewall policy (`firewall_policy_sanitized.txt`).
 
 **DNS control**
 
-Client DNS requests are redirected to the router's DNS resolver to prevent DNS bypass or DNS leaks. :contentReference[oaicite:1]{index=1}
+Client DNS requests are redirected to the router's DNS resolver to prevent DNS bypass or DNS leaks.  
+This behavior is enforced using DNS redirect rules in `firewall_policy_sanitized.txt`.
 
 **DNSSEC validation**
 
-DNSMasq is configured to perform DNSSEC validation for additional protection against DNS manipulation. :contentReference[oaicite:2]{index=2}
+DNSMasq is configured to perform DNSSEC validation for additional protection against DNS manipulation.  
+This configuration appears in `dhcp_dns_config_sanitized.txt`.
 
 **IPv6 leak prevention**
 
-IPv6 forwarding from the LAN is disabled to prevent traffic from bypassing the VPN tunnel. :contentReference[oaicite:3]{index=3}
+IPv6 forwarding from the LAN is disabled to prevent traffic from bypassing the VPN tunnel.  
+This control is implemented in `firewall_policy_sanitized.txt`.
 
 ---
 
