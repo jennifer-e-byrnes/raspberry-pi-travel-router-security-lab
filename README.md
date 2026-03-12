@@ -50,19 +50,31 @@ This project demonstrates several practical network security architecture concep
 
 ```text
 raspberry-pi-travel-router-security-lab
-├── README.md
-├── LICENSE
-├── docs/
-│   └── travel-router-security-architecture-lab.pdf
-├── diagrams/
-│   ├── system_architecture.png
-│   ├── network_architecture.png
-│   ├── trust_boundary.png
-│   ├── data_flow.png
-│   ├── security_controls.png
-│   └── threat_model.png
-└── configs/
-    └── (router configuration snapshots)
+|   LICENSE
+|   README.md
+|
++---configs
+|       dhcp_dns_config_sanitized.txt
+|       firewall_policy_sanitized.txt
+|       hotplug_time_fix.sh
+|       hotplug_wg_after_ntp.sh
+|       network_config_sanitized.txt
+|       README.md
+|       vpn_monitor.sh
+|       wifi_recovery_at_boot.sh
+|       wireless_config_sanitized.txt
+|
++---diagrams
+|       data_flow.png
+|       network_architecture.png
+|       README.md
+|       security_controls.png
+|       system_architecture.png
+|       threat_model.png
+|       trust_boundary.png
+|
+\---docs
+        travel-router-security-architecture-lab.pdf
 ```
 
 Project artifacts are organized into the following directories:
