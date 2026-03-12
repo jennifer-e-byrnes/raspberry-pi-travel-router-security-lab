@@ -9,9 +9,7 @@ These configuration artifacts illustrate how the router implements several key s
 - **Firewall segmentation**
 - **Automated VPN and connectivity recovery**
 
-All sensitive values such as **private keys, Wi-Fi credentials, endpoint identifiers, and unique network metadata have been redacted** before publication.
-
-The files included here represent sanitized excerpts of the operational configuration used in the travel router lab environment.
+All sensitive values such as **private keys, Wi-Fi credentials, endpoint identifiers, and unique network metadata have been redacted** before publication. The files included here represent sanitized excerpts of the operational configuration used in the travel router lab environment.
 
 These files are provided as **reference artifacts for architecture documentation**, not as production-ready configuration files.
 
