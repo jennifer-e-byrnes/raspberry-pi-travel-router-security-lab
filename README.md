@@ -46,20 +46,17 @@ This project demonstrates several practical network security architecture concep
 
 ## Repository Structure
 
-raspberry-pi-travel-router-security-lab
-'''
+## Repository Structure
+
+```raspberry-pi-travel-router-security-lab
 ├── README.md
 ├── LICENSE
-│
 ├── docs/
-│ └── travel-router-security-architecture-lab.pdf
-│
+│   └── travel-router-security-architecture-lab.pdf
 ├── diagrams/
-│ └── (architecture diagrams)
-│
+│   └── (architecture diagrams)
 └── configs/
-└── (router configuration snapshots)
-'''
+    └── (router configuration snapshots)```
 
 Project artifacts are organized into the following directories:
 
