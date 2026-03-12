@@ -50,8 +50,16 @@ This project demonstrates several practical network security architecture concep
 
 Project artifacts are organized into the following directories:
 
-- [LICENSE](LICENSE) — repository license
-- [README.md](README.md) — project overview and navigation
+- [`docs`](./docs) — Full project documentation and architecture report  
+- [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
+- [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
+
+---
+
+### File Layout
+
+- [LICENSE](LICENSE) — repository license  
+- [README.md](README.md) — project overview and navigation  
 
 - **configs/**
   - [README.md](configs/README.md) — explanation of configuration artifacts and scripts
@@ -75,14 +83,6 @@ Project artifacts are organized into the following directories:
 
 - **docs/**
   - [travel-router-security-architecture-lab.pdf](docs/travel-router-security-architecture-lab.pdf) — compiled architecture and security documentation
-
-Project artifacts are organized into the following directories:
-
-- [`docs`](./docs) — Full project documentation and architecture report  
-- [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
-- [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
-
----
 
 # Project Overview
 
