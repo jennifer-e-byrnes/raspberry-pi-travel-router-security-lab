@@ -113,6 +113,7 @@ The router acts as an intermediary gateway between client devices and upstream n
 
 **Client traffic flow**
 
+```text
 Client Device
 │
 ▼
@@ -123,6 +124,7 @@ WireGuard VPN Tunnel
 │
 ▼
 Internet
+```
 
 The architecture enforces centralized control over:
 
