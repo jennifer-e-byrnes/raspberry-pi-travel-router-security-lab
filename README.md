@@ -24,7 +24,7 @@ Client Devices → Travel Router → WireGuard VPN → Internet
 
 # Security Concepts & Controls
 
-This project demonstrates several practical network security architecture concepts implemented through OpenWrt configuration and firewall policy.
+The router architecture incorporates several network security controls implemented through OpenWrt configuration and firewall policy.
 
 | Security Concept | Implementation |
 |---|---|
