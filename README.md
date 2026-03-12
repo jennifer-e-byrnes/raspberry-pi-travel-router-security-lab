@@ -43,6 +43,8 @@ Together these controls ensure that **all client traffic follows the intended en
 
 # Table of Contents
 
+- [Architecture Summary](#architecture-summary)
+- [Security Concepts & Controls](#security-concepts--controls)
 - [Project Overview](#project-overview)
 - [System Architecture](#system-architecture)
 - [Network Architecture](#network-architecture)
