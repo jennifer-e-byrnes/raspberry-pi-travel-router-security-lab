@@ -21,10 +21,10 @@ These files represent key portions of the router's OpenWrt configuration.
 
 | File | Description |
 |-----|-----|
-| `network_config_sanitized.txt` | Defines router interfaces including LAN bridge, upstream Wi-Fi uplink (WWAN), and the WireGuard VPN interface. |
-| `firewall_policy_sanitized.txt` | Firewall zones, forwarding policies, and rules enforcing LAN → VPN routing while preventing direct WAN bypass. |
-| `dhcp_dns_config_sanitized.txt` | DHCP server and DNSMasq configuration used to control client DNS resolution and enable DNSSEC validation. |
-| `wireless_config_sanitized.txt` | Wireless configuration defining the router's client access point and upstream Wi-Fi connection to external networks. |
+| [`network_config_sanitized.txt`](./network_config_sanitized.txt) | Defines router interfaces including LAN bridge, upstream Wi-Fi uplink (WWAN), and the WireGuard VPN interface. |
+| [`firewall_policy_sanitized.txt`](./firewall_policy_sanitized.txt) | Firewall zones, forwarding policies, and rules enforcing LAN → VPN routing while preventing direct WAN bypass. |
+| [`dhcp_dns_config_sanitized.txt`](./dhcp_dns_config_sanitized.txt) | DHCP server and DNSMasq configuration used to control client DNS resolution and enable DNSSEC validation. |
+| [`wireless_config_sanitized.txt`](./wireless_config_sanitized.txt) | Wireless configuration defining the router's client access point and upstream Wi-Fi connection to external networks. |
 
 ### Key Security Properties Demonstrated
 
@@ -36,22 +36,22 @@ LAN clients are allowed to forward traffic only to the VPN zone.
 
 LAN → VPN → Internet
 
-Direct forwarding from LAN to WAN is explicitly blocked in the firewall policy (`firewall_policy_sanitized.txt`).
+Direct forwarding from LAN to WAN is explicitly blocked in the firewall policy ([`firewall_policy_sanitized.txt`](./firewall_policy_sanitized.txt)).
 
 **DNS control**
 
 Client DNS requests are redirected to the router's DNS resolver to prevent DNS bypass or DNS leaks.  
-This behavior is enforced using DNS redirect rules in `firewall_policy_sanitized.txt`.
+This behavior is enforced using DNS redirect rules in [`firewall_policy_sanitized.txt`](./firewall_policy_sanitized.txt).
 
 **DNSSEC validation**
 
 DNSMasq is configured to perform DNSSEC validation for additional protection against DNS manipulation.  
-This configuration appears in `dhcp_dns_config_sanitized.txt`.
+This configuration appears in [`dhcp_dns_config_sanitized.txt`](./dhcp_dns_config_sanitized.txt).
 
 **IPv6 leak prevention**
 
 IPv6 forwarding from the LAN is disabled to prevent traffic from bypassing the VPN tunnel.  
-This control is implemented in `firewall_policy_sanitized.txt`.
+This control is implemented in [`firewall_policy_sanitized.txt`](./firewall_policy_sanitized.txt).
 
 ---
 
@@ -61,10 +61,10 @@ These scripts were created to improve **reliability and resilience of the travel
 
 | Script | Description |
 |------|------|
-| `vpn_monitor.sh` | Monitors WireGuard tunnel health and attempts recovery if the VPN becomes stale or connectivity is lost. |
-| `wifi_recovery_at_boot.sh` | Performs a delayed Wi-Fi restart during boot to recover wireless services. |
-| `hotplug_wg_after_ntp.sh` | Ensures the VPN interface starts only after upstream connectivity and time synchronization. |
-| `hotplug_time_fix.sh` | Restarts time-dependent services when network interfaces come online. |
+| [`vpn_monitor.sh`](./vpn_monitor.sh) | Monitors WireGuard tunnel health and attempts recovery if the VPN becomes stale or connectivity is lost. |
+| [`wifi_recovery_at_boot.sh`](./wifi_recovery_at_boot.sh) | Performs a delayed Wi-Fi restart during boot to recover wireless services. |
+| [`hotplug_wg_after_ntp.sh`](./hotplug_wg_after_ntp.sh) | Ensures the VPN interface starts only after upstream connectivity and time synchronization. |
+| [`hotplug_time_fix.sh`](./hotplug_time_fix.sh) | Restarts time-dependent services when network interfaces come online. |
 
 ### Automated Recovery Behavior
 
@@ -72,20 +72,20 @@ The router includes several automated recovery mechanisms:
 
 **VPN tunnel health monitoring**
 
-The VPN monitor script checks WireGuard handshake age and connectivity to detect stale tunnels (`vpn_monitor.sh`).
+The VPN monitor script checks WireGuard handshake age and connectivity to detect stale tunnels ([`vpn_monitor.sh`](./vpn_monitor.sh)).
 
 **Upstream network recovery**
 
 If connectivity fails, the router attempts to reset the upstream Wi-Fi interface before restarting the VPN.  
-This recovery logic is implemented in `vpn_monitor.sh`.
+This recovery logic is implemented in [`vpn_monitor.sh`](./vpn_monitor.sh).
 
 **Startup sequencing**
 
-Hotplug scripts ensure that time-dependent services and the VPN interface start in the correct order after the network becomes available (`hotplug_wg_after_ntp.sh`, `hotplug_time_fix.sh`).
+Hotplug scripts ensure that time-dependent services and the VPN interface start in the correct order after the network becomes available ([`hotplug_wg_after_ntp.sh`](./hotplug_wg_after_ntp.sh), [`hotplug_time_fix.sh`](./hotplug_time_fix.sh)).
 
 **Wireless service stabilization**
 
-A delayed Wi-Fi restart is used to recover wireless services that occasionally fail during system boot (`wifi_recovery_at_boot.sh`).
+A delayed Wi-Fi restart is used to recover wireless services that occasionally fail during system boot ([`wifi_recovery_at_boot.sh`](./wifi_recovery_at_boot.sh)).
 
 ---
 
