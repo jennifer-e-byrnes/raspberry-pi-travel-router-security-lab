@@ -2,7 +2,7 @@
 
 This directory contains **sanitized configuration snapshots and automation scripts** from the OpenWrt-based Raspberry Pi travel router used in this security lab project.
 
-These files illustrate how the router enforces:
+These configuration artifacts illustrate how the router implements several key security controls:
 
 - **VPN-first routing**
 - **DNS control and leak prevention**
@@ -11,22 +11,24 @@ These files illustrate how the router enforces:
 
 All sensitive values such as **private keys, Wi-Fi credentials, endpoint identifiers, and unique network metadata have been redacted** before publication.
 
+The files included here represent sanitized excerpts of the operational configuration used in the travel router lab environment.
+
 These files are provided as **reference artifacts for architecture documentation**, not as production-ready configuration files.
 
 ---
 
-# Configuration Snapshots
+## Configuration Snapshots
 
 These files represent key portions of the router's OpenWrt configuration.
 
 | File | Description |
-|-----|-----|
+|------|-------------|
 | [`network_config_sanitized.txt`](./network_config_sanitized.txt) | Defines router interfaces including LAN bridge, upstream Wi-Fi uplink (WWAN), and the WireGuard VPN interface. |
 | [`firewall_policy_sanitized.txt`](./firewall_policy_sanitized.txt) | Firewall zones, forwarding policies, and rules enforcing LAN → VPN routing while preventing direct WAN bypass. |
 | [`dhcp_dns_config_sanitized.txt`](./dhcp_dns_config_sanitized.txt) | DHCP server and DNSMasq configuration used to control client DNS resolution and enable DNSSEC validation. |
 | [`wireless_config_sanitized.txt`](./wireless_config_sanitized.txt) | Wireless configuration defining the router's client access point and upstream Wi-Fi connection to external networks. |
 
-### Key Security Properties Demonstrated
+## Key Security Properties Demonstrated
 
 The configuration snapshots show several important design choices:
 
@@ -55,12 +57,12 @@ This control is implemented in [`firewall_policy_sanitized.txt`](./firewall_poli
 
 ---
 
-# Automation Scripts
+## Automation Scripts
 
 These scripts were created to improve **reliability and resilience of the travel router** when operating on unstable or hostile networks.
 
 | Script | Description |
-|------|------|
+|--------|-------------|
 | [`vpn_monitor.sh`](./vpn_monitor.sh) | Monitors WireGuard tunnel health and attempts recovery if the VPN becomes stale or connectivity is lost. |
 | [`wifi_recovery_at_boot.sh`](./wifi_recovery_at_boot.sh) | Performs a delayed Wi-Fi restart during boot to recover wireless services. |
 | [`hotplug_wg_after_ntp.sh`](./hotplug_wg_after_ntp.sh) | Ensures the VPN interface starts only after upstream connectivity and time synchronization. |
@@ -89,7 +91,7 @@ A delayed Wi-Fi restart is used to recover wireless services that occasionally f
 
 ---
 
-# Security Considerations
+## Security Considerations
 
 To prevent disclosure of sensitive information, the following data has been removed:
 
