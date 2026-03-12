@@ -120,17 +120,23 @@ The architecture enforces centralized control over:
 
 # Network Architecture
 
-The network architecture illustrates how the router interfaces with the private LAN, upstream network, and VPN tunnel.
+The network architecture illustrates how the router connects the private LAN, upstream network, and encrypted VPN tunnel.
 
 ![Network Architecture](./diagrams/network_architecture.png)
 
-The router maintains multiple network interfaces:
+The router maintains three primary network interfaces:
 
-- **LAN bridge** for connected client devices
-- **WAN interface (wwan)** for upstream network connectivity
-- **WireGuard interface (wg0)** for encrypted VPN routing
+- **LAN bridge (br-lan)** — private network for connected client devices  
+- **WAN interface (wwan)** — upstream connectivity to external Wi-Fi networks  
+- **WireGuard interface (wg0)** — encrypted VPN tunnel for outbound traffic  
 
-Firewall zones enforce segmentation between these networks.
+Firewall zones enforce segmentation between these networks and ensure that client traffic follows the intended routing path.
+
+### OpenWrt Interface Configuration
+
+The following OpenWrt interface view shows the active LAN, WAN, and WireGuard interfaces used in the architecture.
+
+![OpenWrt Interfaces](./docs/screenshots/openwrt_interfaces.png)
 
 ---
 
@@ -236,7 +242,7 @@ This project demonstrates practical experience in:
 
 Project artifacts are organized into the following directories:
 
-- [`docs`](./docs) — Full project documentation and architecture report  
+- [`docs`](./docs) — Project documentation, screenshots, and architecture report  
 - [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
 - [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
 
@@ -275,9 +281,15 @@ Architecture and security diagrams used throughout the documentation.
 
 ### docs/
 
-Compiled project documentation.
+Compiled project documentation and supporting assets.
 
 - [travel-router-security-architecture-lab.pdf](docs/travel-router-security-architecture-lab.pdf) — full architecture and security documentation
+
+#### docs/screenshots/
+
+Interface screenshots and configuration evidence used in the README.
+
+- [openwrt_interfaces.png](docs/screenshots/openwrt_interfaces.png) — OpenWrt interface overview showing LAN, WAN, and WireGuard interfaces
 
 ---
 
