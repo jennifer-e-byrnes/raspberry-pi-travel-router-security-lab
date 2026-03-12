@@ -50,31 +50,32 @@ This project demonstrates several practical network security architecture concep
 
 ```text
 raspberry-pi-travel-router-security-lab
-|   LICENSE
-|   README.md
-|
-+---configs
-|       dhcp_dns_config_sanitized.txt
-|       firewall_policy_sanitized.txt
-|       hotplug_time_fix.sh
-|       hotplug_wg_after_ntp.sh
-|       network_config_sanitized.txt
-|       README.md
-|       vpn_monitor.sh
-|       wifi_recovery_at_boot.sh
-|       wireless_config_sanitized.txt
-|
-+---diagrams
-|       data_flow.png
-|       network_architecture.png
-|       README.md
-|       security_controls.png
-|       system_architecture.png
-|       threat_model.png
-|       trust_boundary.png
-|
-\---docs
-        travel-router-security-architecture-lab.pdf
+│
+├── [LICENSE](LICENSE)
+├── [README.md](README.md)
+│
+├── configs
+│   ├── [dhcp_dns_config_sanitized.txt](configs/dhcp_dns_config_sanitized.txt)
+│   ├── [firewall_policy_sanitized.txt](configs/firewall_policy_sanitized.txt)
+│   ├── [hotplug_time_fix.sh](configs/hotplug_time_fix.sh)
+│   ├── [hotplug_wg_after_ntp.sh](configs/hotplug_wg_after_ntp.sh)
+│   ├── [network_config_sanitized.txt](configs/network_config_sanitized.txt)
+│   ├── [README.md](configs/README.md)
+│   ├── [vpn_monitor.sh](configs/vpn_monitor.sh)
+│   ├── [wifi_recovery_at_boot.sh](configs/wifi_recovery_at_boot.sh)
+│   └── [wireless_config_sanitized.txt](configs/wireless_config_sanitized.txt)
+│
+├── diagrams
+│   ├── [data_flow.png](diagrams/data_flow.png)
+│   ├── [network_architecture.png](diagrams/network_architecture.png)
+│   ├── [README.md](diagrams/README.md)
+│   ├── [security_controls.png](diagrams/security_controls.png)
+│   ├── [system_architecture.png](diagrams/system_architecture.png)
+│   ├── [threat_model.png](diagrams/threat_model.png)
+│   └── [trust_boundary.png](diagrams/trust_boundary.png)
+│
+└── docs
+    └── [travel-router-security-architecture-lab.pdf](docs/travel-router-security-architecture-lab.pdf)
 ```
 
 Project artifacts are organized into the following directories:
