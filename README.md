@@ -55,7 +55,8 @@ raspberry-pi-travel-router-security-lab
 ├── diagrams/
 │   └── (architecture diagrams)
 └── configs/
-    └── (router configuration snapshots)```
+    └── (router configuration snapshots)
+```
 
 Project artifacts are organized into the following directories:
 
