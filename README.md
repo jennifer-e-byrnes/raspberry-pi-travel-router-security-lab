@@ -12,27 +12,28 @@ A portable network security lab implementing **VPN-first routing, DNS enforcemen
 
 ---
 
-# Security Concepts Demonstrated
+# Security Concepts & Controls
 
-This project demonstrates several practical network security architecture concepts:
+This project demonstrates several practical network security architecture concepts implemented through OpenWrt configuration and firewall policy.
 
-| Concept | Implementation |
-|-------|----------------|
-| VPN-first routing | Firewall forwarding restricts LAN traffic to the WireGuard interface |
-| DNS enforcement | Firewall redirects force all DNS queries to the router resolver |
-| DNSSEC validation | DNSMasq configured to validate DNS responses |
-| IPv6 leak prevention | IPv6 DHCP, RA, and SLAAC disabled |
-| Firewall segmentation | Separate LAN, WAN, and VPN zones |
-| Secure management surface | SSH and LuCI restricted to LAN |
-| Rogue DHCP protection | Firewall rules block unauthorized DHCP responses |
-| Network trust boundary | Router enforces centralized security controls for all clients |
+| Security Concept | Implementation |
+|---|---|
+| **VPN-first routing** | Firewall forwarding restricts LAN traffic to the WireGuard interface |
+| **DNS enforcement** | Firewall redirects force all DNS queries to the router resolver |
+| **DNSSEC validation** | DNSMasq configured to validate DNS responses |
+| **IPv6 leak prevention** | IPv6 DHCP, RA, and SLAAC disabled |
+| **Firewall segmentation** | Separate LAN, WAN, and VPN zones |
+| **Secure management surface** | SSH and LuCI restricted to LAN |
+| **Rogue DHCP protection** | Firewall rules block unauthorized DHCP responses |
+| **Network trust boundary** | Router enforces centralized security controls for all clients |
+
+Together these controls ensure that **all client traffic follows the intended encrypted routing path**.
 
 ---
 
 # Table of Contents
 
 - [Project Overview](#project-overview)
-- [Security Controls Implemented](#security-controls-implemented)
 - [System Architecture](#system-architecture)
 - [Network Architecture](#network-architecture)
 - [Trust Boundary](#trust-boundary)
@@ -108,20 +109,6 @@ A **Raspberry Pi running OpenWrt** acts as a travel router that:
 By centralizing routing and DNS policies at the gateway, all connected devices automatically follow the same security controls without requiring configuration changes on each endpoint.
 
 This architecture mirrors how many organizations implement **network security controls at trusted boundaries**, where routing policy, DNS enforcement, and segmentation are centralized within network infrastructure.
-
----
-
-# Security Controls Implemented
-
-| Security Control | Implementation |
-|---|---|
-| **VPN-first routing** | Firewall rules enforce LAN → VPN and block LAN → WAN |
-| **DNS leak prevention** | DNS redirect rules force TCP/UDP 53 through dnsmasq |
-| **IPv6 leak reduction** | DHCPv6, RA, and SLAAC disabled |
-| **Firewall segmentation** | Zone-based firewall separating LAN / WAN / VPN |
-| **Restricted administration** | SSH and LuCI limited to the LAN network |
-
-Together these controls ensure that **all client traffic follows the intended encrypted routing path**.
 
 ---
 
@@ -268,6 +255,56 @@ This project demonstrates practical experience in:
 - network segmentation
 - troubleshooting complex routing behavior
 - translating security goals into infrastructure controls
+
+---
+---
+
+# Repository Structure
+
+Project artifacts are organized into the following directories:
+
+- [`docs`](./docs) — Full project documentation and architecture report  
+- [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
+- [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
+
+---
+
+## Repository Layout
+
+- [LICENSE](LICENSE) — repository license  
+- [README.md](README.md) — project overview and navigation  
+
+### configs/
+
+Configuration snapshots and automation scripts.
+
+- [README.md](configs/README.md) — explanation of configuration artifacts and scripts
+- [dhcp_dns_config_sanitized.txt](configs/dhcp_dns_config_sanitized.txt)
+- [firewall_policy_sanitized.txt](configs/firewall_policy_sanitized.txt)
+- [hotplug_time_fix.sh](configs/hotplug_time_fix.sh)
+- [hotplug_wg_after_ntp.sh](configs/hotplug_wg_after_ntp.sh)
+- [network_config_sanitized.txt](configs/network_config_sanitized.txt)
+- [vpn_monitor.sh](configs/vpn_monitor.sh)
+- [wifi_recovery_at_boot.sh](configs/wifi_recovery_at_boot.sh)
+- [wireless_config_sanitized.txt](configs/wireless_config_sanitized.txt)
+
+### diagrams/
+
+Architecture and security diagrams used throughout the documentation.
+
+- [README.md](diagrams/README.md) — explanation of architecture and security diagrams
+- [data_flow.png](diagrams/data_flow.png)
+- [network_architecture.png](diagrams/network_architecture.png)
+- [security_controls.png](diagrams/security_controls.png)
+- [system_architecture.png](diagrams/system_architecture.png)
+- [threat_model.png](diagrams/threat_model.png)
+- [trust_boundary.png](diagrams/trust_boundary.png)
+
+### docs/
+
+Compiled project documentation.
+
+- [travel-router-security-architecture-lab.pdf](docs/travel-router-security-architecture-lab.pdf) — full architecture and security documentation
 
 ---
 
