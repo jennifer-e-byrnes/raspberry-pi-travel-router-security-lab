@@ -72,19 +72,20 @@ The router includes several automated recovery mechanisms:
 
 **VPN tunnel health monitoring**
 
-The VPN monitor script checks WireGuard handshake age and connectivity to detect stale tunnels. :contentReference[oaicite:4]{index=4}
+The VPN monitor script checks WireGuard handshake age and connectivity to detect stale tunnels (`vpn_monitor.sh`).
 
 **Upstream network recovery**
 
-If connectivity fails, the router attempts to reset the upstream Wi-Fi interface before restarting the VPN.
+If connectivity fails, the router attempts to reset the upstream Wi-Fi interface before restarting the VPN.  
+This recovery logic is implemented in `vpn_monitor.sh`.
 
 **Startup sequencing**
 
-Hotplug scripts ensure that time-dependent services and the VPN interface start in the correct order after the network becomes available. :contentReference[oaicite:5]{index=5}
+Hotplug scripts ensure that time-dependent services and the VPN interface start in the correct order after the network becomes available (`hotplug_wg_after_ntp.sh`, `hotplug_time_fix.sh`).
 
 **Wireless service stabilization**
 
-A delayed Wi-Fi restart is used to recover wireless services that occasionally fail during system boot. :contentReference[oaicite:6]{index=6}
+A delayed Wi-Fi restart is used to recover wireless services that occasionally fail during system boot (`wifi_recovery_at_boot.sh`).
 
 ---
 
@@ -101,12 +102,11 @@ These artifacts are provided for **educational and architectural reference only*
 
 ---
 
-# Relationship to the Project
+## Relationship to the Project
 
 These configuration artifacts support the architecture documented in:
 
-/diagrams
-/docs
+- [`/diagrams`](../diagrams) — Architecture, network, trust boundary, and threat model diagrams
+- [`/docs`](../docs) — Full architecture and security analysis documentation
 
 They provide **technical evidence of the security controls and network segmentation described in the project documentation**.
-
