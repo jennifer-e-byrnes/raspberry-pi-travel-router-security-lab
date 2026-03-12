@@ -12,7 +12,7 @@ A portable network security lab implementing **VPN-first routing, DNS enforcemen
 
 ---
 
-## Security Concepts Demonstrated
+# Security Concepts Demonstrated
 
 This project demonstrates several practical network security architecture concepts:
 
@@ -29,11 +29,13 @@ This project demonstrates several practical network security architecture concep
 
 ---
 
-## Table of Contents
+# Table of Contents
 
 - [Project Overview](#project-overview)
 - [Security Controls Implemented](#security-controls-implemented)
 - [System Architecture](#system-architecture)
+- [Network Architecture](#network-architecture)
+- [Trust Boundary](#trust-boundary)
 - [Core Components](#core-components)
 - [Testing Methodology](#testing-methodology)
 - [Limitations](#limitations)
@@ -44,7 +46,7 @@ This project demonstrates several practical network security architecture concep
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```text
 raspberry-pi-travel-router-security-lab
@@ -53,7 +55,12 @@ raspberry-pi-travel-router-security-lab
 ├── docs/
 │   └── travel-router-security-architecture-lab.pdf
 ├── diagrams/
-│   └── (architecture diagrams)
+│   ├── system_architecture.png
+│   ├── network_architecture.png
+│   ├── trust_boundary.png
+│   ├── data_flow.png
+│   ├── security_controls.png
+│   └── threat_model.png
 └── configs/
     └── (router configuration snapshots)
 ```
@@ -66,7 +73,7 @@ Project artifacts are organized into the following directories:
 
 ---
 
-## Project Overview
+# Project Overview
 
 Public networks (hotels, airports, cafés, and temporary housing) are environments where users have little control over the underlying infrastructure.
 
@@ -93,7 +100,7 @@ This architecture mirrors how many organizations implement **network security co
 
 ---
 
-## Security Controls Implemented
+# Security Controls Implemented
 
 | Security Control | Implementation |
 |---|---|
@@ -107,7 +114,7 @@ Together these controls ensure that **all client traffic follows the intended en
 
 ---
 
-## System Architecture
+# System Architecture
 
 The router acts as an intermediary gateway between client devices and upstream networks.
 
@@ -115,16 +122,20 @@ The router acts as an intermediary gateway between client devices and upstream n
 
 ```text
 Client Device
-│
-▼
+     │
+     ▼
 Travel Router (OpenWrt)
-│
-▼
+     │
+     ▼
 WireGuard VPN Tunnel
-│
-▼
+     │
+     ▼
 Internet
 ```
+
+### System Architecture Diagram
+
+![System Architecture](./diagrams/system_architecture.png)
 
 The architecture enforces centralized control over:
 
@@ -133,11 +144,42 @@ The architecture enforces centralized control over:
 - firewall policy
 - administrative access
 
-Architecture diagrams illustrating this design are located in the [`diagrams`](./diagrams) directory.
+---
+
+# Network Architecture
+
+The network architecture illustrates how the router interfaces with the private LAN, upstream network, and VPN tunnel.
+
+![Network Architecture](./diagrams/network_architecture.png)
+
+The router maintains multiple network interfaces:
+
+- **LAN bridge** for connected client devices
+- **WAN interface (wwan)** for upstream network connectivity
+- **WireGuard interface (wg0)** for encrypted VPN routing
+
+Firewall zones enforce segmentation between these networks.
 
 ---
 
-## Core Components
+# Trust Boundary
+
+The trust boundary diagram highlights how the router separates **trusted client devices** from **untrusted upstream networks**.
+
+![Trust Boundary](./diagrams/trust_boundary.png)
+
+The Raspberry Pi router functions as a **policy enforcement gateway**, controlling how traffic flows between zones.
+
+Security policies applied at this boundary include:
+
+- firewall rule enforcement
+- VPN-first routing
+- DNS control
+- administrative access restrictions
+
+---
+
+# Core Components
 
 | Component | Purpose |
 |---|---|
@@ -152,7 +194,7 @@ Architecture diagrams illustrating this design are located in the [`diagrams`](.
 
 ---
 
-## Testing Methodology
+# Testing Methodology
 
 After configuration, several tests validated that routing and DNS controls behaved as expected.
 
@@ -176,7 +218,7 @@ Configuration artifacts supporting these controls can be found in [`configs`](./
 
 ---
 
-## Limitations
+# Limitations
 
 This implementation focuses primarily on **routing and DNS control**, not full network monitoring.
 
@@ -190,7 +232,7 @@ Known limitations include:
 
 ---
 
-## Future Improvements
+# Future Improvements
 
 Planned future enhancements include:
 
@@ -204,7 +246,7 @@ These additions would further expand the system into a **portable network securi
 
 ---
 
-## Skills Demonstrated
+# Skills Demonstrated
 
 This project demonstrates practical experience in:
 
@@ -218,7 +260,7 @@ This project demonstrates practical experience in:
 
 ---
 
-## Author
+# Author
 
 Jennifer Byrnes  
 Cybersecurity Portfolio Project  
