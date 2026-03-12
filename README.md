@@ -8,7 +8,7 @@
 A portable network security lab implementing **VPN-first routing, DNS enforcement, and firewall segmentation** using **OpenWrt on a Raspberry Pi**.
 
 📄 **Full Project Documentation**  
-[Travel Router Security Architecture Lab](docs/travel-router-security-architecture-lab.pdf)
+[Travel Router Security Architecture Lab](./docs/travel-router-security-architecture-lab.pdf)
 
 ---
 
@@ -39,25 +39,33 @@ This project demonstrates several practical network security architecture concep
 - [Limitations](#limitations)
 - [Future Improvements](#future-improvements)
 - [Skills Demonstrated](#skills-demonstrated)
+- [Repository Structure](#repository-structure)
 - [Author](#author)
+
+---
 
 ## Repository Structure
 
-```text
 raspberry-pi-travel-router-security-lab
 │
 ├── README.md
 ├── LICENSE
 │
 ├── docs/
-│   └── travel-router-security-architecture-lab.pdf
+│ └── travel-router-security-architecture-lab.pdf
 │
 ├── diagrams/
-│   └── (architecture diagrams)
+│ └── (architecture diagrams)
 │
 └── configs/
-    └── (router configuration snapshots)
-```
+└── (router configuration snapshots)
+
+Project artifacts are organized into the following directories:
+
+- [`docs`](./docs) — Full project documentation and architecture report  
+- [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
+- [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
+
 ---
 
 ## Project Overview
@@ -105,7 +113,7 @@ Together these controls ensure that **all client traffic follows the intended en
 
 The router acts as an intermediary gateway between client devices and upstream networks.
 
-**Client traffic flow:**
+**Client traffic flow**
 
 Client Device
 │
@@ -124,6 +132,8 @@ The architecture enforces centralized control over:
 - DNS resolution
 - firewall policy
 - administrative access
+
+Architecture diagrams illustrating this design are located in the [`diagrams`](./diagrams) directory.
 
 ---
 
@@ -161,6 +171,8 @@ Results confirmed that:
 - outbound traffic exits through the VPN tunnel
 - LAN → WAN bypass is blocked
 - administrative access is LAN-only
+
+Configuration artifacts supporting these controls can be found in [`configs`](./configs).
 
 ---
 
@@ -211,5 +223,3 @@ This project demonstrates practical experience in:
 Jennifer Byrnes  
 Cybersecurity Portfolio Project  
 March 2026
-
-
