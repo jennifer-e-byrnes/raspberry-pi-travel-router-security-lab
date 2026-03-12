@@ -10,6 +10,16 @@ A portable network security lab implementing **VPN-first routing, DNS enforcemen
 📄 **Full Project Documentation**  
 [Travel Router Security Architecture Lab](./docs/travel-router-security-architecture-lab.pdf)
 
+## Architecture Summary
+
+The system is a **Raspberry Pi travel router running OpenWrt** that connects to untrusted upstream Wi-Fi networks and routes all client traffic through a **WireGuard VPN tunnel**.
+
+The router acts as a **security enforcement gateway**, applying firewall segmentation, DNS control, and VPN-first routing to protect connected devices.
+
+**High-level flow**
+
+Client Devices → Travel Router → WireGuard VPN → Internet
+
 ---
 
 # Security Concepts & Controls
@@ -46,44 +56,6 @@ Together these controls ensure that **all client traffic follows the intended en
 - [Author](#author)
 
 ---
-
-# Repository Structure
-
-Project artifacts are organized into the following directories:
-
-- [`docs`](./docs) — Full project documentation and architecture report  
-- [`diagrams`](./diagrams) — Architecture, data flow, trust boundary, and threat model diagrams  
-- [`configs`](./configs) — Sanitized OpenWrt configuration snapshots and automation scripts  
-
----
-
-### File Layout
-
-- [LICENSE](LICENSE) — repository license  
-- [README.md](README.md) — project overview and navigation  
-
-- **configs/**
-  - [README.md](configs/README.md) — explanation of configuration artifacts and scripts
-  - [dhcp_dns_config_sanitized.txt](configs/dhcp_dns_config_sanitized.txt)
-  - [firewall_policy_sanitized.txt](configs/firewall_policy_sanitized.txt)
-  - [hotplug_time_fix.sh](configs/hotplug_time_fix.sh)
-  - [hotplug_wg_after_ntp.sh](configs/hotplug_wg_after_ntp.sh)
-  - [network_config_sanitized.txt](configs/network_config_sanitized.txt)
-  - [vpn_monitor.sh](configs/vpn_monitor.sh)
-  - [wifi_recovery_at_boot.sh](configs/wifi_recovery_at_boot.sh)
-  - [wireless_config_sanitized.txt](configs/wireless_config_sanitized.txt)
-
-- **diagrams/**
-  - [README.md](diagrams/README.md) — explanation of architecture and security diagrams
-  - [data_flow.png](diagrams/data_flow.png)
-  - [network_architecture.png](diagrams/network_architecture.png)
-  - [security_controls.png](diagrams/security_controls.png)
-  - [system_architecture.png](diagrams/system_architecture.png)
-  - [threat_model.png](diagrams/threat_model.png)
-  - [trust_boundary.png](diagrams/trust_boundary.png)
-
-- **docs/**
-  - [travel-router-security-architecture-lab.pdf](docs/travel-router-security-architecture-lab.pdf) — compiled architecture and security documentation
 
 # Project Overview
 
@@ -256,7 +228,6 @@ This project demonstrates practical experience in:
 - troubleshooting complex routing behavior
 - translating security goals into infrastructure controls
 
----
 ---
 
 # Repository Structure
